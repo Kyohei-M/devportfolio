@@ -1,4 +1,4 @@
-name: PullRequest
+name: pull request
 
 on:
   push:
@@ -7,13 +7,22 @@ on:
 
 jobs:
   pull_request:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: install hub
+        uses: geertvdc/setup-hub@v1.0.0
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: checkout develop
+        uses: actions/checkout@v2
+        with:
+          ref: develop
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3.4.0
+        env:
+          REVIEWERS: "kyohmizu"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: develop
+        run: |
+          hub pull-request -m "Pull Request from Github Actions" -b master -h $BRANCH_NAME -r "$REVIEWERS"
