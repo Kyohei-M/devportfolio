@@ -18,6 +18,10 @@ body.active {
   overflow: hidden;
   z-index: -1;
 }
+.blue-back {
+  color: #fff;
+  background: #3498db;
+}
 .no-js #experience-timeline > div {
   background: #fff;
   padding: 10px;
@@ -142,7 +146,7 @@ footer {
 }
 .copyright p {
   margin: 0;
-  color: #74808a;
+  color: #fff;
 }
 .top {
   text-align: center;
@@ -154,11 +158,11 @@ footer {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  border: 3px solid #b9bfc4;
+  border: 3px solid #fff;
   text-align: center;
 }
 .top i {
-  color: #74808a;
+  color: #fff;
 }
 .social {
   text-align: right;
@@ -174,7 +178,7 @@ footer {
 }
 .social a {
   display: block;
-  color: #74808a;
+  color: #fff;
   padding: 10px;
 }
 .social a:hover {
